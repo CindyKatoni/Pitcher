@@ -13,7 +13,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'#USE POSTGRE LATER ON
 #Create db instance
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
 #Import here to prevent circular imports
 from pitch import routes

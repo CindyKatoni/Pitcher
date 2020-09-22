@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+<!--Styles Block-->
+{% block styles%} 
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica"/>
+    
+{% endblock %}
+
+
+<!--Content Block-->
+{% block content %}
+<div class="container">
+  <h1>Welcome To Pitcher:::</h1>
+</div>
+
+<div class="container mx-auto">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="pickup-tab" data-toggle="tab" href="#pickup" role="tab" aria-controls="home" aria-selected="true">Pickup Lines</a>
+        </li>
+        <li class="nav-item" role="presentation">
+        <a class="nav-link" id="interview-tab" data-toggle="tab" href="#interview" role="tab" aria-controls="profile" aria-selected="false">Interview Pitch</a>
+        </li>
+        <li class="nav-item" role="presentation">
+        <a class="nav-link" id="product-tab" data-toggle="tab" href="#product" role="tab" aria-controls="contact" aria-selected="false">Product Pitch</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="promotion-tab" data-toggle="tab" href="#promotion" role="tab" aria-controls="contact" aria-selected="false">Promotion Pitch</a>
+            </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+            <!-- <div class="container mx-auto"> -->
+                <div class="row row-cols-1 row-cols-md-3">
+                    <div class="col mb-4">
+                        <div class="card h-100" style="box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .15);">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">Category</h4>
+                                <br/>
+                                <h6>Paragraph describing pitch</h6>
+                                <div class="card-footer">
+                                    <div class="row row-cols-3">
+                                        <div class="col mb-4">
+                                            <span class="badge badge-pill badge-success" style="padding-left: 10px; padding-right: 10px;">
+                                                <i class="fas fa-thumbs-up"></i>
+                                            </span>
+                                        </div>
+                                        <div class="col mb-4">
+                                            <span class="badge badge-pill badge-danger" style="padding-left: 10px; padding-right: 10px;">
+                                                <i class="fas fa-thumbs-down"></i>
+                                            </span>
+                                        </div>
+                                        <div class="col mb-4">
+                                            <span class="badge badge-pill badge-info" style="padding-left: 10px; padding-right: 10px;">
+                                                <i class="fas fa-comment"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+        <div class="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab">
+            <div class="container mx-auto">
+                
+            </div>
+        </div>
+        <div class="tab-pane fade" id="product" role="tabpanel" aria-labelledby="product-tab">
+            <div class="container mx-auto">
+                
+            </div>
+        </div>
+        <div class="tab-pane fade" id="promotion" role="tabpanel" aria-labelledby="promotion-tab">
+            <div class="container mx-auto">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock%}

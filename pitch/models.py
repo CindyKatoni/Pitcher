@@ -1,4 +1,4 @@
-from pitch import db
+from pitch import db, login_manager
 
 
 

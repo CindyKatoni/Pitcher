@@ -1,87 +1,252 @@
 {% extends 'base.html'%}
 
 <!--Styles Block-->
-{% block styles%} 
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica"/>
-    
-{% endblock %}
+{% block styles%} {{ super() }}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//fonts.googleapis.com/css?family=Aclonica"
+/>
 
+{% endblock %}
 
 <!--Content Block-->
 {% block content %}
-<div class="container">
-  <h1>Welcome To Pitcher:::</h1>
-</div>
 
 <div class="container mx-auto">
+    <!-- Category Navigation tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
+      <li class="nav-item" role="presentation">
         <a class="nav-link active" id="pickup-tab" data-toggle="tab" href="#pickup" role="tab" aria-controls="home" aria-selected="true">Pickup Lines</a>
-        </li>
-        <li class="nav-item" role="presentation">
+      </li>
+      <li class="nav-item" role="presentation">
         <a class="nav-link" id="interview-tab" data-toggle="tab" href="#interview" role="tab" aria-controls="profile" aria-selected="false">Interview Pitch</a>
-        </li>
-        <li class="nav-item" role="presentation">
+      </li>
+      <li class="nav-item" role="presentation">
         <a class="nav-link" id="product-tab" data-toggle="tab" href="#product" role="tab" aria-controls="contact" aria-selected="false">Product Pitch</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="promotion-tab" data-toggle="tab" href="#promotion" role="tab" aria-controls="contact" aria-selected="false">Promotion Pitch</a>
-            </li>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="promotion-tab" data-toggle="tab" href="#promotion" role="tab" aria-controls="contact" aria-selected="false">Promotion Pitch</a>
+      </li>
     </ul>
+    <!-- End of category nav tabs -->
+
+    <!-- Tab contents -->
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
-            <!-- <div class="container mx-auto"> -->
-                <div class="row row-cols-1 row-cols-md-3">
-                    <div class="col mb-4">
-                        <div class="card h-100" style="box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .15);">
-                            <div class="card-body">
-                                <h4 class="card-title text-center">Category</h4>
-                                <br/>
-                                <h6>Paragraph describing pitch</h6>
-                                <div class="card-footer">
-                                    <div class="row row-cols-3">
-                                        <div class="col mb-4">
-                                            <span class="badge badge-pill badge-success" style="padding-left: 10px; padding-right: 10px;">
-                                                <i class="fas fa-thumbs-up"></i>
-                                            </span>
-                                        </div>
-                                        <div class="col mb-4">
-                                            <span class="badge badge-pill badge-danger" style="padding-left: 10px; padding-right: 10px;">
-                                                <i class="fas fa-thumbs-down"></i>
-                                            </span>
-                                        </div>
-                                        <div class="col mb-4">
-                                            <span class="badge badge-pill badge-info" style="padding-left: 10px; padding-right: 10px;">
-                                                <i class="fas fa-comment"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+        <!-- Pickup Lines Content -->
+      <div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+        <br />
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <i id="show-pickupform" class="fas fa-plus fa-3x text-primary btn"></i>
+              <span class="text-primary">Add Pitch</span>
+            </div>
+            <div class="col-md-8" style="display: none;" id="add-pitch-pickup">
+              <form>
+                <div class="form-group row">
+                  <label for="category" class="col-sm-2 col-form-label">Category</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="category" value="Pickup Lines" disabled>
+                  </div>
                 </div>
-            <!-- </div> -->
-        </div>
-        <div class="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab">
-            <div class="container mx-auto">
-                
+                <div class="form-group row">
+                  <label for="title" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="content" class="col-sm-2 col-form-label">Content</label>
+                  <div class="col-sm-10">
+                    <textarea rows="3" class="form-control" id="content"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <button class="btn btn-success btn-large mx-auto" type="submit">Submit</button>
+                </div>
+              </form>
             </div>
+          </div>
+          <br />
         </div>
+        <!-- Display Pickup cards -->
+  
+        <div class="row row-cols-1 row-cols-md-3">
+
+          <div class="col mb-4">
+            <div class="card h-100" style="
+                box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+                  0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+              ">
+              <div class="card-body">
+                <h4 class="card-title text-center">Category</h4>
+                <br />
+                <h6>Paragraph describing pitch</h6>
+                <div class="card-footer">
+                  <div class="row row-cols-3">
+                    <div class="col mb-4">
+                      <span class="badge badge-pill badge-success" style="padding-left: 10px; padding-right: 10px">
+                        <i class="fas fa-thumbs-up"></i>
+                      </span>
+                    </div>
+                    <div class="col mb-4">
+                      <span class="badge badge-pill badge-danger" style="padding-left: 10px; padding-right: 10px">
+                        <i class="fas fa-thumbs-down"></i>
+                      </span>
+                    </div>
+                    <div class="col mb-4">
+                      <span class="badge badge-pill badge-info" style="padding-left: 10px; padding-right: 10px">
+                        <i class="fas fa-comment"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- End of Display Pickup cards -->
+      </div>
+      <!-- ENd of Pickup Lnies Content -->
+
+      <!-- INterview Content -->
+      <div class="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab">
+        <br />
+        <!-- Interview form -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <i id="show-interviewform" class="fas fa-plus fa-3x text-primary btn"></i>
+              <span class="text-primary">Add Pitch</span>
+            </div>
+            <div class="col-md-8" style="display: none;" id="add-pitch-interview">
+              <form>
+                <div class="form-group row">
+                  <label for="category" class="col-sm-2 col-form-label">Category</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="category" value="Interview" disabled>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="title" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="content" class="col-sm-2 col-form-label">Content</label>
+                  <div class="col-sm-10">
+                    <textarea rows="3" class="form-control" id="content"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <button class="btn btn-success btn-large mx-auto" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <br />
+        </div>
+        <!-- End of interview form -->
+
+        <!-- Show interview pitches -->
+
+        <!-- ENd of show interview pitches -->
+        </div>
+        <!-- ENd of Interview Content -->
+
+        <!-- Product Content -->
         <div class="tab-pane fade" id="product" role="tabpanel" aria-labelledby="product-tab">
-            <div class="container mx-auto">
-                
+          <br />
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <i id="show-productform" class="fas fa-plus fa-3x text-primary btn"></i>
+                <span class="text-primary">Add Pitch</span>
+              </div>
+              <div class="col-md-8" style="display: none;" id="add-pitch-product">
+                <form>
+                  <div class="form-group row">
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="category" value="Product" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="title">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="product" class="col-sm-2 col-form-label">Product</label>
+                    <div class="col-sm-10">
+                      <textarea rows="3" class="form-control" id="product"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <button class="btn btn-success btn-large mx-auto" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="promotion" role="tabpanel" aria-labelledby="promotion-tab">
-            <div class="container mx-auto">
-                
+            <br />
+            <div class="container mx-auto"></div>
+          </div>
+          <!-- End of product form -->
+
+          <!-- Show product cards -->
+
+          <!-- End of shwo product cards -->
+          </div>
+          <!-- End of Product content -->
+
+          <!-- Promotion Content -->
+          <div class="tab-pane fade" id="promotion" role="tabpanel" aria-labelledby="promotion-tab"> <br />
+            <div class="container">
+                <!-- Promotion form -->
+              <div class="row">
+                <div class="col-md-4">
+                  <i id="show-promotionform" class="fas fa-plus fa-3x text-primary btn"></i>
+                  <span class="text-primary">Add Pitch</span>
+                </div>
+                <div class="col-md-8" style="display: none;" id="add-pitch-promotion">
+                  <form>
+                    <div class="form-group row">
+                      <label for="category" class="col-sm-2 col-form-label">Category</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="category" value="Promotion" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="title" class="col-sm-2 col-form-label">Title</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="content" class="col-sm-2 col-form-label">Content</label>
+                      <div class="col-sm-10">
+                        <textarea rows="3" class="form-control" id="content"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <button class="btn btn-success btn-large mx-auto" type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- End of add promotion form -->
+              <br />
+              <div class="container mx-auto"></div>
             </div>
+          </div>
+          <!-- End of Promotion Content -->
+
         </div>
-    </div>
-</div>
-
-
-
+    
+        <!-- End of tab content -->
 {% endblock%}

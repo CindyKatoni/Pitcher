@@ -1,5 +1,5 @@
 {% extends 'base.html'%} 
-{% import 'macros.html' as macro%} 
+{% import 'macros.html' as macro with context %}
 {% block content %}
 <div class="content-section">
   <form method="POST" action="">
@@ -72,4 +72,4 @@
     >
   </div>
 </div>
-{% endblock content%}
+{% endblock content %}
